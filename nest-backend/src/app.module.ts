@@ -1,16 +1,23 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from "@nestjs/mongoose";
+import { MongooseModule } from '@nestjs/mongoose';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MusicModule } from './music/music.module';
-import { PlaylistsModule } from './playlists/playlists.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-      MongooseModule.forRoot("mongodb://localhost/selfradio"),
-      MusicModule,
-      PlaylistsModule],
+    // Two files are defined below, for the configuration of the app in different environments
+    ConfigModule.forRoot({
+      envFilePath: ['../.env', '.env'],
+    }),
+    MongooseModule.forRoot(`${process.env.MONGO_URL}`, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }),
+    MusicModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
