@@ -8,15 +8,15 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    // Two files are defined below, for the configuration of the app in different environments
+    ConfigModule.forRoot({
+      envFilePath: ['../.env', '.env'],
+    }),
     MongooseModule.forRoot(`${process.env.MONGO_URL}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }),
     MusicModule,
-    // Two files are defined below, for the configuration of the app in different environments
-    ConfigModule.forRoot({
-      envFilePath: ['../.env', '.env'],
-    }),
   ],
   controllers: [AppController],
   providers: [AppService],
