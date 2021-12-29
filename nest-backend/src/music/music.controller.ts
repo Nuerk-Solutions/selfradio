@@ -1,7 +1,6 @@
 import {
   Controller,
   Get,
-  Logger,
   Post,
   UploadedFile,
   UploadedFiles,
@@ -10,12 +9,9 @@ import {
 import { MusicService } from './music.service';
 import { Song } from './schemas/song.schema';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
-import { AppController } from '../app.controller';
 
 @Controller('music')
 export class MusicController {
-  private readonly logger = new Logger(AppController.name);
-
   constructor(private readonly musicService: MusicService) {}
 
   @Post('file')
