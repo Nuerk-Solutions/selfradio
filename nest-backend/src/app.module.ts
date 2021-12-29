@@ -3,12 +3,14 @@ import { MongooseModule } from "@nestjs/mongoose";
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MusicController } from './music/music.controller';
 import { MusicModule } from './music/music.module';
-import { MusicService } from "./music/music.service";
+import { PlaylistsModule } from './playlists/playlists.module';
 
 @Module({
-  imports: [MongooseModule.forRoot("mongodb://localhost/selfradio"), MusicModule],
+  imports: [
+      MongooseModule.forRoot("mongodb://localhost/selfradio"),
+      MusicModule,
+      PlaylistsModule],
   controllers: [AppController],
   providers: [AppService],
 })

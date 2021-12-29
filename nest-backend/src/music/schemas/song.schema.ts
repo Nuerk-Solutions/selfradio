@@ -10,6 +10,9 @@ export class Song {
 
     @Prop({ required: true })
     interpret: string
+
+    @Prop({ required: true })
+    audioPath: string
 }
 
 export const SongSchema = SchemaFactory.createForClass(Song);
