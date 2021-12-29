@@ -5,8 +5,8 @@ export type InterpretDocument = Interpret & Document;
 
 @Schema()
 export class Interpret {
-    @Prop({ required: true })
-    name: string
+  @Prop({ required: true })
+  name: string;
 }
 
 export const InterpretSchema = SchemaFactory.createForClass(Interpret);
