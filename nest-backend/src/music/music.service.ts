@@ -21,7 +21,19 @@ export class MusicService {
     return createdSong.save();
   }
 
-  async findAll(): Promise<Song[]> {
-    return this.songModel.find().exec();
-  }
+    async findById(id: string): Promise<Song> {
+        return this.songModel.findById({ _id: id });
+    }
+
+    async findByInterpret(interpret: string): Promise<Song[]> {
+        return this.songModel.find({ interpret: new RegExp(interpret, "i") } ).exec();
+    }
+
+    async findByTitle(title: string): Promise<Song[]> {
+        return this.songModel.find({ title: new RegExp(title, "i") }).exec();
+    }
+
+    async findAll(): Promise<Song[]> {
+        return this.songModel.find().exec();
+    }
 }

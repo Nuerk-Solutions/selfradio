@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Playlist, PlaylistDocument} from "./schemas/playlist.schema";
-import {Song} from "../music/schemas/song.schema";
 
 @Injectable()
 export class PlaylistsService {

@@ -12,7 +12,7 @@ import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 
 @Controller('music')
 export class MusicController {
-  constructor(private readonly musicService: MusicService) {}
+    constructor(private readonly musicService: MusicService) {}
 
   @Post('file')
   @UseInterceptors(FileInterceptor('file'))
@@ -38,8 +38,18 @@ export class MusicController {
     });
   }
 
-  @Get()
-  async getAllSongs(): Promise<Song[]> {
-    return this.musicService.findAll();
-  }
+    @Get("interpret")
+    async getSongsFromInterpret(interpret: string): Promise<Song[]> {
+        return this.musicService.findByInterpret(interpret);
+    }
+
+    @Get()
+    async getSongsWithTitle(title: string): Promise<Song[]> {
+        return this.musicService.findByTitle(title);
+    }
+
+    @Get("all")
+    async getAllSongs(): Promise<Song[]> {
+        return this.musicService.findAll()
+    }
 }
