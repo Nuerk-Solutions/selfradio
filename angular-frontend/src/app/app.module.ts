@@ -7,6 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ListenComponent } from './listen/listen.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { EditComponent } from './edit/edit.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
