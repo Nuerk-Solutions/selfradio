@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  UploadedFile,
-  UploadedFiles,
-  UseInterceptors,
-} from '@nestjs/common';
+import {Controller, Get, Post, Put, UploadedFile, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import { MusicService } from './music.service';
 import { Song } from './schemas/song.schema';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
@@ -14,7 +7,7 @@ import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 export class MusicController {
     constructor(private readonly musicService: MusicService) {}
 
-  @Post('file')
+  @Put('file')
   @UseInterceptors(FileInterceptor('file'))
   async uploadSong(@UploadedFile() file: Express.Multer.File): Promise<Song> {
     const metadata = file.originalname.split(' - ', 2);
@@ -25,7 +18,7 @@ export class MusicController {
     );
   }
 
-  @Post('files')
+  @Put('files')
   @UseInterceptors(FilesInterceptor('files'))
   async uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>) {
     files.forEach((file) => {
@@ -43,12 +36,12 @@ export class MusicController {
         return this.musicService.findByInterpret(interpret);
     }
 
-    @Get()
+    @Get("title")
     async getSongsWithTitle(title: string): Promise<Song[]> {
         return this.musicService.findByTitle(title);
     }
 
-    @Get("all")
+    @Get("")
     async getAllSongs(): Promise<Song[]> {
         return this.musicService.findAll()
     }

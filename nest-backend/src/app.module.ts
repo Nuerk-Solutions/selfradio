@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MusicModule } from './music/music.module';
 import { ConfigModule } from '@nestjs/config';
+import { PlaylistsModule } from "./playlists/playlists.module";
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
       useUnifiedTopology: true,
     }),
     MusicModule,
+    PlaylistsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

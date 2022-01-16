@@ -1,15 +1,15 @@
-import {Controller, Get, Post } from '@nestjs/common';
-import {Playlist} from "./schemas/playlist.schema";
-import {PlaylistsService} from "./playlists.service";
+import {Body, Controller, Get, Post, Put} from '@nestjs/common';
+import { Playlist } from "./schemas/playlist.schema";
+import { PlaylistsService } from "./playlists.service";
+import {CreatePlaylistDto} from "./dto/create-playlist.dto";
 
-@Controller('playlists')
+@Controller('playlist')
 export class PlaylistsController {
     constructor(private readonly playlistService: PlaylistsService) {}
 
-
-    @Post("create")
-    async createPlaylist(name: string, description?: string): Promise<Playlist> {
-        return this.playlistService.createPlaylist(name, description);
+    @Put("create")
+    async createPlaylist(@Body() createPlaylistDTO: CreatePlaylistDto): Promise<Playlist> {
+        return this.playlistService.createPlaylist(createPlaylistDTO.name, createPlaylistDTO.description);
     }
 
     @Get()
