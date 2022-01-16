@@ -1,0 +1,52 @@
+<div class="fixed flex gap-16 left-20 bottom-0 p-4 w-full h-24 bg-zinc-800 transition-all">
+  <div class="w-44">
+
+  </div>
+  <div class="w-1/4">
+    <h1 class="text-3xl text-emerald-200">{{title}}</h1>
+    <h2 class="text-xl text-emerald-100">{{artist}}</h2>
+  </div>
+  <div class="grid grid-cols-3 gap-6 items-center">
+    <div class="bg-gradient-to-r from-lime-300 to-emerald-400 mx-auto w-12 h-12
+                rounded-2xl hover:rounded-xl transition-all ease-linear duration-500 shadow-lg
+                grid place-items-center">
+      <fa-icon class="text-zinc-900" [icon]="iconBackward" size="lg"></fa-icon>
+    </div>
+    <div class="bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto w-16 h-16
+                rounded-2xl hover:rounded-xl transition-all ease-linear duration-500 shadow-lg
+                grid place-items-center" (click)="onPausePlay()">
+      <fa-icon class="text-zinc-900" [icon]="playButton" size="2x"></fa-icon>
+    </div>
+    <div class="bg-gradient-to-r from-cyan-400 to-indigo-700 mx-auto w-12 h-12
+                rounded-2xl hover:rounded-xl transition-all ease-linear duration-500 shadow-lg
+                grid place-items-center">
+      <fa-icon class="text-zinc-900" [icon]="iconForward" size="lg"></fa-icon>
+    </div>
+  </div>
+  <div class="grid grid-cols-3 grid-rows-2 gap-3">
+    <div class="bg-gradient-to-r from-indigo-700 to-violet-700 mx-auto w-8 h-8
+                rounded shadow-lg grid place-items-center">
+      <fa-icon class="text-zinc-300" [icon]="iconStop"></fa-icon>
+    </div>
+    <div class="bg-gradient-to-r from-indigo-700 to-violet-700 mx-auto w-8 h-8
+                rounded shadow-lg grid place-items-center">
+      <fa-icon class="text-zinc-300" [icon]="iconRandom"></fa-icon>
+    </div>
+    <div class="bg-gradient-to-r from-indigo-700 to-violet-700 mx-auto w-8 h-8
+                rounded shadow-lg grid place-items-center">
+      <fa-icon class="text-zinc-300" [icon]="iconRedo"></fa-icon>
+    </div>
+    <div class="bg-gradient-to-r from-indigo-700 to-violet-700 mx-auto w-8 h-8
+                rounded shadow-lg grid place-items-center">
+      <fa-icon class="text-zinc-300" [icon]="iconVolumeDown"></fa-icon>
+    </div>
+    <div class="bg-gradient-to-r from-indigo-700 to-violet-700 mx-auto w-8 h-8
+                rounded shadow-lg grid place-items-center">
+      <fa-icon class="text-zinc-300" [icon]="iconVolumeUp"></fa-icon>
+    </div>
+    <div class="bg-gradient-to-r from-indigo-700 to-violet-700 mx-auto w-8 h-8
+                rounded shadow-lg grid place-items-center">
+      <fa-icon class="text-zinc-300" [icon]="iconVolumeMute"></fa-icon>
+    </div>
+  </div>
+</div>

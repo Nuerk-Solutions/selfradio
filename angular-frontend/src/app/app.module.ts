@@ -8,6 +8,7 @@ import { ListenComponent } from './listen/listen.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { EditComponent } from './edit/edit.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MusicbarComponent } from './shared/musicbar/musicbar.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ListenComponent,
     NavbarComponent,
     EditComponent,
+    MusicbarComponent,
   ],
   imports: [
     BrowserModule,

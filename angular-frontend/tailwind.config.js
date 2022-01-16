@@ -1,9 +1,14 @@
+// tailwind.config.js
 module.exports = {
-  purge: [],
-  content: [],
-  darkMode: media,
+  mode: 'jit',
+  content: ['./src/**/*.{html,ts}'],
+  darkMode: "media",
   theme: {
-    extend: {},
+  },
+  variants: {
+    extend: {
+      visibility: ["group-hover"],
+    },
   },
   plugins: [],
 }
